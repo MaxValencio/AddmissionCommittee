@@ -1,1 +1,1 @@
-# AddmissionCommitee
+# AddmissionCommittee
