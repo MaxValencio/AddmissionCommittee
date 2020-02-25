@@ -3,24 +3,17 @@ package ua.nure.odnokozov.admission.committee.entity;
 import java.util.Map;
 import java.util.Objects;
 
-public class Subject {
+public class Subject extends Entity{
 
-    private long id;
-    private Map<Language, Title> titles;
+    private static final long serialVersionUID = 5672088183357688364L;
 
-    public long getId() {
-        return id;
-    }
+    private Map<Language, String> titles;
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public Map<Language, Title> getTitles() {
+    public Map<Language, String> getTitles() {
         return titles;
     }
 
-    public void setTitles(Map<Language, Title> titles) {
+    public void setTitles(Map<Language, String> titles) {
         this.titles = titles;
     }
 
@@ -46,6 +39,10 @@ public class Subject {
 
     @Override
     public String toString() {
-        return "Subject [id=" + id + ", titles=" + titles + "]";
+        return new StringBuilder()
+                .append("Subject [id=").append(super.getId())
+                .append(", titles=").append(titles)
+                .append("]")
+                .toString();
     }
 }

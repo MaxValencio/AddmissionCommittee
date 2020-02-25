@@ -1,61 +1,70 @@
 package ua.nure.odnokozov.admission.committee.entity;
 
+import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
-public class Faculty {
+public class Faculty extends Entity {
 
-    private long id;
-    private Map<Language, Title> titles;
-    private Map<Language, Title> descriptions;
+    private static final long serialVersionUID = 5661316074436236121L;
 
-    public long getId() {
-        return id;
+    private int totalSeats;
+    private int budgetSeats;
+    private Map<Language, String> titles;
+    private Map<Language, String> descriptions;
+    private List<Subject> examSubjects;
+
+    public Faculty() {
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public Map<Language, Title> getTitles() {
+    public Map<Language, String> getTitles() {
         return titles;
     }
 
-    public void setTitles(Map<Language, Title> titles) {
+    public void setTitles(Map<Language, String> titles) {
         this.titles = titles;
     }
 
-    public Map<Language, Title> getDescriptions() {
+    public Map<Language, String> getDescriptions() {
         return descriptions;
     }
 
-    public void setDescriptions(Map<Language, Title> descriptions) {
-        this.descriptions = descriptions;
+    public void setDescriptions(Map<Language, String> description) {
+        this.descriptions = description;
     }
 
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((descriptions == null) ? 0 : descriptions.hashCode());
-        result = prime * result + ((titles == null) ? 0 : titles.hashCode());
-        return result;
+    public int getTotalSeats() {
+        return totalSeats;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null || getClass() != obj.getClass()) {
-            return false;
-        }
-        Faculty other = (Faculty) obj;
-        return Objects.equals(descriptions, other.descriptions) && Objects.equals(titles, other.titles);
+    public void setTotalSeats(int totalSeats) {
+        this.totalSeats = totalSeats;
+    }
+
+    public int getBudgetSeats() {
+        return budgetSeats;
+    }
+
+    public void setBudgetSeats(int budgetSeats) {
+        this.budgetSeats = budgetSeats;
+    }    
+
+    public List<Subject> getExamSubjects() {
+        return examSubjects;
+    }
+
+    public void setExamSubjects(List<Subject> subjects) {
+        this.examSubjects = subjects;
     }
 
     @Override
     public String toString() {
-        return "Faculty [id=" + id + ", titles=" + titles + ", descriptions=" + descriptions + "]";
+        return new StringBuilder()
+                .append("Faculty [id=").append(super.getId())
+                .append(", title=").append(titles)
+                .append(", description=").append(descriptions)
+                .append(", totalSeats=").append(totalSeats)
+                .append(", budgetSeats=").append(budgetSeats)
+                .append("]")
+                .toString();
     }
 }

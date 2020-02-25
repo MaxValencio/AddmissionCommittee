@@ -1,25 +1,31 @@
 package ua.nure.odnokozov.admission.committee.entity;
 
-import java.util.List;
-import java.util.Map;
+import ua.nure.odnokozov.admission.committee.enums.BlockStatus;
 
-public class Profile {
+import java.util.Set;
 
-    private long id;
+public class Profile extends Entity {
+
+    private static final long serialVersionUID = 2422174494598871251L;
+
+    private BlockStatus blockStatus;
     private String firstName;
     private String lastName;
     private String city;
     private String region;
-    private String scholl;
-    private String certificate;
-    private Map<Subject, Integer> marks;
+    private String school;
+    private Certificate certificate;
+    private Set<Faculty> selectedFacultyies;
 
-    public long getUserId() {
-        return id;
+    public Profile() { 
+    }
+    
+    public BlockStatus getBlockStatus() {
+        return blockStatus;
     }
 
-    public void setUserId(long userId) {
-        this.id = userId;
+    public void setBlockStatus(BlockStatus blockStatus) {
+        this.blockStatus = blockStatus;
     }
 
     public String getFirstName() {
@@ -54,36 +60,38 @@ public class Profile {
         this.region = region;
     }
 
-    public String getScholl() {
-        return scholl;
+    public String getSchool() {
+        return school;
     }
 
-    public void setScholl(String scholl) {
-        this.scholl = scholl;
+    public void setSchool(String school) {
+        this.school = school;
     }
-
-    public String getCertificate() {
+    
+    public Certificate getCertificate() {
         return certificate;
     }
 
-    public void setCertificate(String certificate) {
+    public void setCertificate(Certificate certificate) {
         this.certificate = certificate;
     }
 
-    public Map<Subject, Integer> getMarks() {
-        return marks;
+    public Set<Faculty> getSelectedFacultyies() {
+        return selectedFacultyies;
     }
 
-    public void setMarks(Map<Subject, Integer> marks) {
-        this.marks = marks;
+    public void setSelectedFacultyies(Set<Faculty> selectedFacultyies) {
+        this.selectedFacultyies = selectedFacultyies;
     }
-
+    
     @Override
     public String toString() {
-        return "Profile [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", city=" + city
-                + ", region=" + region + ", scholl=" + scholl + "]";
+        return new StringBuilder()
+                .append("Profile [id=").append(super.getId())
+                .append(", blockStatus=").append(blockStatus)
+                .append(", firstName=").append(firstName)
+                .append(", lastName=").append(lastName)
+                .append("]")
+                .toString();
     }
-    
-    
-
 }

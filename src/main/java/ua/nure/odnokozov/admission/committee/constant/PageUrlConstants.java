@@ -1,6 +1,6 @@
 package ua.nure.odnokozov.admission.committee.constant;
 
-public class Path {
+public class PageUrlConstants {
 
     public static final String WELCOME_PAGE = "welcome.jsp"; 
     
